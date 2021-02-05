@@ -1,0 +1,15 @@
+/*
+  Basically I just pull important items from the bootstrap.min.css
+
+  TODO: When everything is built place only used css into this file
+*/
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+

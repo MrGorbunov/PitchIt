@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitch It</title>
+
+  <!-- JS Dependencies - Vue & Socket.io -->
+  <script defer src="./deps/vue-dev.js"></script>
+  <script defer src="./deps/socketio-client.js"></script>
+
+  <link rel="stylesheet" href="./deps/bootstrap.css">
+
+  <script defer src="./player.js"></script>
+
+</head>
+<body>
+
+  <div id="player-app" class="container">
+    <!-- Joining Game Form
+      Here people specify their names & the gamecode
+    -->
+    <div v-if="state === 'FORM'">
+      <h1 class="my-5">
+        Join A Game
+      </h1>
+
+      <div class="my-5">
+        <input type="text" id="form-gameCode" class="form-control my-2" placeholder="Game Code">
+        <input type="text" id="form-name" class="form-control my-2" placeholder="Enter a name">
+        <button id="form-joinGame" class="btn btn-primary">Join Game</button>
+      </div>
+    </div>
+
+
+
+    <!-- Lobby Screen
+      This displays when the player enters the lobby but the game
+      has yet to start.
+    -->
+    <div v-if="state === 'LOBBY'">
+      <h1 class="my-5">
+        You're in {{ name }} :D
+      </h1>
+      <p>
+        Take a look at the main screen and you should see yourself.
+      </p>
+    </div>
+
+
+
+    <!-- Intermission Screen
+      Shows in between active segments of the game. This is still part of the game.
+      For example, if the host was displaying directions
+    -->
+    <div v-if="state === 'INTERMISSION'">
+      <h1 class="my-5">
+        Take a look at the screen
+      </h1>
+    </div>
+  </div>
+
+</body>
+</html>

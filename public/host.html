@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitch It - Lobby</title>
+
+  <!-- JS Dependencies - Vue & Socket.io -->
+  <script defer src="./deps/vue-dev.js"></script>
+  <script defer src="./deps/socketio-client.js"></script>
+
+  <link rel="stylesheet" href="./deps/bootstrap.css">
+
+  <script defer src="./host.js"></script>
+
+
+</head>
+
+<body>
+
+  <!--
+    Code: AJKLM
+    Button: Start
+
+    Players:
+     - Poop sock
+     - Magic Man
+     - e2dapii
+     - Sarag
+  -->
+  <style>
+    #game-code {
+      background-color: lightskyblue;
+      text-align: center;
+    }
+
+    #game-code-text {
+      font-size: 5em;
+    }
+
+    .player-card .spec-card {
+      align-items: center;
+      align-self: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      overflow: hidden;
+    }
+
+    .player-card {
+      background-color: lightskyblue;
+    }
+
+    .spec-card {
+      background-color: aliceblue;
+    }
+  </style>
+
+  <div class="container" id="host-app">
+    <div class="row align-items-center my-5">
+      <div id="game-code" class="col">
+        <h1 id="game-code-text">
+          {{ code }}
+        </h1>
+      </div>
+
+      <div class="col-2">
+        <button type="button" class="btn btn-lg btn-info">
+          Start Game >
+        </button>
+      </div>
+    </div>
+
+    <div class="my-5">
+      <h3>Players</h3>
+
+      <div class="row align-items-center">
+        <div class="card col-3 player-card mx-2 my-2" v-for="player in players">
+          <div class="card-body">
+            {{ player }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
